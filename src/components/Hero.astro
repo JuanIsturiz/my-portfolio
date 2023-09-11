@@ -1,0 +1,34 @@
+---
+import arrowDown from "../assets/arrow-down.svg";
+---
+
+<section
+  class="relative intro flex items-center min-h-screen bg-[url('/img/hero-bg.svg')] bg-cover"
+>
+  <div class="-mt-64 ml-6">
+    <h1 class="text-6xl tracking-tighter font-bold">Hi, I'm Juan Isturiz</h1>
+    <h2 class="text-4xl tracking-tighter font-bold text-gray-900">
+      a Fullstack Developer
+    </h2>
+  </div>
+  <img
+    src={arrowDown.src}
+    alt="Arrow Down"
+    class="absolute -bottom-1 left-1/2 -translate-x-1/2 animate-bounce w-12 h-12"
+  />
+</section>
+
+<style>
+  .intro {
+    animation: fade-in 1500ms ease-in-out;
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 100;
+    }
+  }
+</style>
