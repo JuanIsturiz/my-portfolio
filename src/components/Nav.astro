@@ -1,20 +1,23 @@
 ---
+import download from "../assets/arrow-down-to-line.svg";
+
 const navLinks = [
   { label: "About", section: "about" },
   { label: "Stack", section: "stack" },
   { label: "Projects", section: "projects" },
-  { label: "Contact Me", section: "contact" },
+  { label: "Contact", section: "contact" },
 ];
 ---
 
 <header
   class="absolute left-0 top-0 z-20 flex justify-between items-center w-full border-b bg-white py-1 px-4"
 >
-  <div
-    class="bg-black w-11 h-11 rounded-full aspect-square flex items-center justify-center text-white text-xl"
+  <button
+    class="parent flex items-center gap-1 text-lg bg-black text-white py-1 px-2 rounded"
   >
-    JI
-  </div>
+    <p>Download CV</p>
+    <img src={download.src} alt="Download icon" />
+  </button>
 
   <!-- nav -->
   <div class="cursor-pointer space-y-1 lg:hidden">
@@ -36,3 +39,27 @@ const navLinks = [
     }
   </nav>
 </header>
+
+<style>
+  .parent:hover img {
+    animation: download-bounce 1500ms linear infinite;
+  }
+
+  @keyframes download-bounce {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(1.5px);
+    }
+    50% {
+      transform: translateY(0);
+    }
+    75% {
+      transform: translateY(-1.5px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+</style>

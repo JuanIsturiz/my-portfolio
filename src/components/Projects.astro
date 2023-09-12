@@ -1,1 +1,231 @@
-<section class="min-h-screen">projects</section>
+---
+import ProjectCard from "./ProjectCard.astro";
+
+const projects = [
+  {
+    id: 0,
+    name: "my-portfolio",
+    description: "My personal portfolio webpage made with Astro.",
+    tags: ["Astro", "TypeScript", "Tailwind"],
+    links: {
+      live: "",
+      code: "",
+    },
+  },
+  {
+    id: 1,
+    name: "images",
+    description:
+      "A picture sharing social media made with Next 13 server actions.",
+    tags: ["TypeScript", "Next.js", "shadcn/ui", "Tailwind", "MongoDB"],
+    links: {
+      live: "",
+      code: "",
+    },
+  },
+  {
+    id: 2,
+    name: "theater.io",
+    description: "A cinema reserve and discover application.",
+    tags: ["TypeScript", "Next.js", "Mantine UI", "prisma", "tRPC", "Supabase"],
+    links: {
+      live: "",
+      code: "",
+    },
+  },
+  {
+    id: 3,
+    name: "Pets",
+    description:
+      "A social media made for users to share their pets made with t3 stack",
+    tags: [
+      "TypeScript",
+      "Next.js",
+      "Next Auth",
+      "Chakra UI",
+      "prisma",
+      "tRPC",
+      "PlanetScale",
+    ],
+    links: {
+      live: "",
+      code: "",
+    },
+  },
+  {
+    id: 4,
+    name: "Project-Stage",
+    description: "A project manager application made with next.js",
+    tags: [
+      "TypeScript",
+      "Next.js",
+      "Next Auth",
+      "Tailwind",
+      "prisma",
+      "tRPC",
+      "PostgreSQL",
+    ],
+    links: {
+      live: "",
+      code: "",
+    },
+  },
+  {
+    id: 5,
+    name: "Thoughts",
+    description:
+      "A mobile application made with react-native where people can share what they're thinking and their emotions.",
+    tags: [
+      "JavaScript",
+      "React Native",
+      "Expo",
+      "Express",
+      "Node.js",
+      "MongoDB",
+    ],
+    links: {
+      live: "",
+      code: "",
+    },
+  },
+  {
+    id: 6,
+    name: "E-Commerce-App",
+    description:
+      "A fullstack E Commerce app made with Postgres, Express, React and Node.",
+    tags: ["JavaScript", "React", "Express", "Node.js", "Stripe", "PostgreSQL"],
+    links: {
+      live: "",
+      code: "",
+    },
+  },
+  {
+    id: 7,
+    name: "Reddit-Client",
+    description: "This is my prototype of a minimal Reddit Client.",
+    tags: ["JavaScript", "React", "Styled Comp."],
+    links: {
+      live: "",
+      code: "",
+    },
+  },
+  {
+    id: 8,
+    name: "recipes",
+    description: "A simple app made with laravel.",
+    tags: ["PHP", "Laravel", "Tailwind", "mySQL"],
+    links: {
+      live: "",
+      code: "",
+    },
+  },
+  {
+    id: 9,
+    name: "Hangman",
+    description: "A hangman game made with TypeScript.",
+    tags: ["TypeScript", "React", "Styled Comp."],
+    links: {
+      live: "",
+      code: "",
+    },
+  },
+  {
+    id: 10,
+    name: "Tic-Tac-Toe",
+    description: "A tic tac toe game with typeScript.",
+    tags: ["TypeScript", "React", "Styled Comp."],
+    links: {
+      live: "",
+      code: "",
+    },
+  },
+  {
+    id: 11,
+    name: "Pomodoro-Clock",
+    description:
+      "This is a prototype of the 25 + 5 Clock project from freeCodeCamp.",
+    tags: ["JavaScript", "React"],
+    links: {
+      live: "",
+      code: "",
+    },
+  },
+  {
+    id: 12,
+    name: "JavaScript-Calculator",
+    description:
+      "This is a prototype of the JavaScript Calculator project from freeCodeCamp.",
+    tags: ["JavaScript", "React"],
+    links: {
+      live: "",
+      code: "",
+    },
+  },
+  {
+    id: 13,
+    name: "Drum-Machine",
+    description:
+      "This is a prototype of the Drum Machine project from freeCodeCamp.",
+    tags: ["JavaScript", "React"],
+    links: {
+      live: "",
+      code: "",
+    },
+  },
+  {
+    id: 14,
+    name: "Markdown-Previewer",
+    description:
+      "This is a prototype of the Markdown Previewer project from freeCodeCamp.",
+    tags: ["JavaScript", "React"],
+    links: {
+      live: "",
+      code: "",
+    },
+  },
+  {
+    id: 15,
+    name: "Random-Quote-Machine",
+    description:
+      "This is a prototype of the Random Quote Machine project from freeCodeCamp.",
+    tags: ["JavaScript", "React"],
+    links: {
+      live: "",
+      code: "",
+    },
+  },
+  {
+    id: 16,
+    name: "ToDo-List",
+    description: "This is my first CRUD project, a todo list.",
+    tags: ["JavaScript", "HTML", "SCSS"],
+    links: {
+      live: "",
+      code: "",
+    },
+  },
+  {
+    id: 17,
+    name: "Mixed-Messages",
+    description:
+      "This is my first webpage, it shows up random quotes from previous Call of Duty games.",
+    tags: ["JavaScript", "HTML", "CSS"],
+    links: {
+      live: "",
+      code: "",
+    },
+  },
+];
+---
+
+<section id="projects" class="min-h-[200vh] p-4">
+  <header class="mb-4">
+    <h3 class="text-5xl text-center tracking-tighter font-bold">Projects</h3>
+    <h4 class="text-3xl text-center tracking-tighter font-bold text-gray-800">
+      Explore my learning sandbox!
+    </h4>
+  </header>
+  <div class="grid grid-cols-3 max-w-7xl mx-auto gap-2">
+    {projects.map((project) => <ProjectCard project={project} />)}
+  </div>
+</section>

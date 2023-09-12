@@ -3,11 +3,12 @@ import arrowDown from "../assets/arrow-down.svg";
 ---
 
 <section
+  id="hero"
   class="relative intro-fade flex items-center min-h-screen bg-[url('/img/hero-bg.svg')] bg-cover"
 >
   <div class="intro-translate -mt-96 ml-2 sm:-mt-64 sm:ml-6">
     <h1 class="text-4xl sm:text-6xl tracking-tighter font-bold">
-      Hi, I'm <span class="text-shadow">Juan Isturiz</span>
+      Hi, I'm <span class="hero-shadow">Juan Isturiz</span>
     </h1>
     <h2 class="text-2xl sm:text-4xl tracking-tighter font-bold text-gray-900">
       a Fullstack Developer
@@ -25,6 +26,10 @@ import arrowDown from "../assets/arrow-down.svg";
 </section>
 
 <style>
+  .hero-shadow {
+    text-shadow: 4px 4px #9ca3af;
+  }
+
   .intro-fade {
     animation: fade-in 1000ms ease-in-out;
   }
