@@ -1,0 +1,28 @@
+---
+const navLinks = [
+  { label: "About", section: "about" },
+  { label: "Stack", section: "stack" },
+  { label: "Projects", section: "projects" },
+  { label: "Contact Me", section: "contact" },
+];
+---
+
+<aside
+  class="hidden fixed z-30 bottom-0 right-0 h-[90vh] sm:flex items-center p-1"
+>
+  <div class="relative -mt-[10vh] z-30 flex flex-col items-end">
+    {
+      navLinks.map((link) => (
+        <a href={`#${link.section}`}>
+          <div class="group/overlay group relative group flex items-center gap-2 py-1 cursor-pointer">
+            <p class="relative z-[60] opacity-0 text-lg transition-all group-hover:opacity-100 group-hover:text-white">
+              {link.label}
+            </p>
+            <div class="relative z-[60] h-10 w-2 rounded bg-gray-900 transition-colors group-hover:bg-white" />
+            <div class="opacity-0 group-hover/overlay:opacity-50 pointer-events-none fixed left-0 top-0 w-full h-screen transition-opacity bg-black z-50" />
+          </div>
+        </a>
+      ))
+    }
+  </div>
+</aside>

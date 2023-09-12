@@ -1,0 +1,15 @@
+---
+export interface Props {
+  title: string;
+  list: string[];
+}
+
+const { title, list } = Astro.props;
+---
+
+<div class="mb-4">
+  <h5 class="text-lg font-semibold">{title}</h5>
+  <ul class="grid grid-cols-4 opacity-90">
+    {list.map((item) => <li class="font-medium text-lg">- {item}</li>)}
+  </ul>
+</div>

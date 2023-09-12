@@ -1,5 +1,6 @@
 ---
 import Nav from "../components/Nav.astro";
+import SideNav from "../components/SideNav.astro";
 interface Props {
   title: string;
 }
@@ -19,11 +20,16 @@ const { title } = Astro.props;
   </head>
   <body>
     <Nav />
+    <SideNav />
     <slot />
   </body>
 </html>
 <style is:global>
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+  :root {
+    scroll-behavior: smooth;
+  }
 
   *,
   html {
@@ -43,20 +49,10 @@ const { title } = Astro.props;
   }
 
   :root::-webkit-scrollbar {
-    width: 16px;
+    display: none;
   }
 
-  :root::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  :root::-webkit-scrollbar-thumb {
-    border: 3px solid rgba(0, 0, 0, 0);
-    background-clip: padding-box;
-    border-radius: 1rem;
-    background-color: #333;
-  }
-  :root::-webkit-scrollbar-thumb:hover {
-    background-color: #555;
+  .text-shadow {
+    text-shadow: 4px 4px #e5e7eb;
   }
 </style>

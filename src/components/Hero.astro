@@ -3,24 +3,34 @@ import arrowDown from "../assets/arrow-down.svg";
 ---
 
 <section
-  class="relative intro flex items-center min-h-screen bg-[url('/img/hero-bg.svg')] bg-cover"
+  class="relative intro-fade flex items-center min-h-screen bg-[url('/img/hero-bg.svg')] bg-cover"
 >
-  <div class="-mt-64 ml-6">
-    <h1 class="text-6xl tracking-tighter font-bold">Hi, I'm Juan Isturiz</h1>
-    <h2 class="text-4xl tracking-tighter font-bold text-gray-900">
+  <div class="intro-translate -mt-96 ml-2 sm:-mt-64 sm:ml-6">
+    <h1 class="text-4xl sm:text-6xl tracking-tighter font-bold">
+      Hi, I'm <span class="text-shadow">Juan Isturiz</span>
+    </h1>
+    <h2 class="text-2xl sm:text-4xl tracking-tighter font-bold text-gray-900">
       a Fullstack Developer
     </h2>
   </div>
-  <img
-    src={arrowDown.src}
-    alt="Arrow Down"
-    class="absolute -bottom-1 left-1/2 -translate-x-1/2 animate-bounce w-12 h-12"
-  />
+  <div class="absolute bottom-0 left-0 w-full flex justify-center">
+    <a href="#about">
+      <img
+        src={arrowDown.src}
+        alt="Arrow Down"
+        class="animate-bounce w-11 h-11 transition-all hover:w-12 hover:h-12"
+      />
+    </a>
+  </div>
 </section>
 
 <style>
-  .intro {
-    animation: fade-in 1500ms ease-in-out;
+  .intro-fade {
+    animation: fade-in 1000ms ease-in-out;
+  }
+
+  .intro-translate {
+    animation: translate-in 1000ms ease-in-out;
   }
 
   @keyframes fade-in {
@@ -29,6 +39,15 @@ import arrowDown from "../assets/arrow-down.svg";
     }
     100% {
       opacity: 100;
+    }
+  }
+
+  @keyframes translate-in {
+    0% {
+      transform: translateY(10px);
+    }
+    100% {
+      transform: translateY(0);
     }
   }
 </style>

@@ -1,32 +1,38 @@
 ---
-import personal from "../assets/personal.jpg";
+const navLinks = [
+  { label: "About", section: "about" },
+  { label: "Stack", section: "stack" },
+  { label: "Projects", section: "projects" },
+  { label: "Contact Me", section: "contact" },
+];
 ---
 
-<nav
+<header
   class="absolute left-0 top-0 z-20 flex justify-between items-center w-full border-b bg-white py-1 px-4"
 >
-  <img
-    src={personal.src}
-    alt={"Personal Picture"}
-    width={42}
-    height={42}
-    class="ml-1 rounded-full border-2 border-black object-cover aspect-square bg-cover"
-  />
-  <div class="text-lg space-x-4">
-    <a
-      href=""
-      class="py-1.5 px-2 rounded transition-colors duration-200 hover:bg-gray-900 hover:text-white"
-      >About</a
-    >
-    <a
-      href=""
-      class="py-1.5 px-2 rounded transition-colors duration-200 hover:bg-gray-900 hover:text-white"
-      >Projects</a
-    >
-    <a
-      href=""
-      class="py-1.5 px-2 rounded transition-colors duration-200 hover:bg-gray-900 hover:text-white"
-      >Contact Me</a
-    >
+  <div
+    class="bg-black w-11 h-11 rounded-full aspect-square flex items-center justify-center text-white text-xl"
+  >
+    JI
   </div>
-</nav>
+
+  <!-- nav -->
+  <div class="cursor-pointer space-y-1 lg:hidden">
+    <div class="w-6 h-0.5 bg-black"></div>
+    <div class="w-6 h-0.5 bg-black"></div>
+    <div class="w-6 h-0.5 bg-black"></div>
+  </div>
+  <!-- large nav -->
+  <nav class="hidden lg:block text-lg space-x-4">
+    {
+      navLinks.map((link) => (
+        <a
+          href={`#${link.section}`}
+          class="py-1.5 px-2 rounded transition-colors duration-200 hover:bg-gray-900 hover:text-white font-medium"
+        >
+          {link.label}
+        </a>
+      ))
+    }
+  </nav>
+</header>
