@@ -1,8 +1,86 @@
-<section id="contact" class="min-h-screen p-4">
+---
+import chavez from "../assets/chavez.webp";
+import github from "../assets/icons/github.svg";
+import linkedin from "../assets/icons/linkedin.svg";
+import instagram from "../assets/icons/instagram.svg";
+import gmail from "../assets/icons/gmail.svg";
+import discord from "../assets/icons/discord.svg";
+
+const socials = [
+  {
+    label: "juan-andres-felice-isturiz",
+    link: "https://www.linkedin.com/in/juan-andres-felice-isturiz-007725243/",
+    icon: linkedin.src,
+  },
+  {
+    label: "JuanIsturiz",
+    link: "https://github.com/JuanIsturiz",
+    icon: github.src,
+  },
+  {
+    label: "juanandresisturiz@gmail.com",
+    link: "mailto:juanandresisturiz@gmail.com",
+    icon: gmail.src,
+  },
+  {
+    label: "juanisturiz_",
+    link: "https://www.instagram.com/juanisturiz_/",
+    icon: instagram.src,
+  },
+  {
+    label: "juuuaaaaaann",
+    link: "https://discordapp.com/users/319951171995303937",
+    icon: discord.src,
+  },
+];
+---
+
+<section id="contact" class="min-h-screen p-2 md:p-8">
   <header class="mb-4">
     <h3 class="text-5xl text-center tracking-tighter font-bold">Contact</h3>
     <h4 class="text-3xl text-center tracking-tighter font-bold text-gray-800">
       Reach out to me!
     </h4>
   </header>
+  <div
+    class="grid gap-24 grid-cols-2 w-full max-w-7xl mx-auto p-2 border-2 border-gray-600 rounded shadow-lg shadow-gray-500 bg-[url('/img/contact-bg.svg')] bg-cover"
+  >
+    <!-- text -->
+    <div>
+      <div class="mb-8">
+        <h6 class="text-xl font-medium mb-2">
+          Thank you for reaching this far into the website!!
+        </h6>
+        <p class="font-medium text-gray-700">
+          In addition to the above, I'm also a fast learner, patient, constant
+          and very preseverant person, good at finding solutions and well
+          performed working with a team, always trying to learn new abilities to
+          improve myself as a proffesional.
+        </p>
+      </div>
+      <h5 class="text-2xl font-medium mb-2">Socials</h5>
+      <div class="grid grid-cols-2 gap-x-10 gap-y-4">
+        {
+          socials.map((social) => (
+            <a
+              href={social.link}
+              target="_blank"
+              class="group flex items-center gap-2 opacity-90 transition-all hover:opacity-100 hover:translate-x-1"
+            >
+              <img
+                src={social.icon}
+                alt=""
+                class="cursor-pointer w-10 shadow-md shadow-gray-900 rounded-lg"
+              />
+              <span class="transition-all group-hover:font-bold">
+                {social.label}
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+    <!-- form -->
+    <div>form</div>
+  </div>
 </section>

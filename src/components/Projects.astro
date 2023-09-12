@@ -4,7 +4,7 @@ import ProjectCard from "./ProjectCard.astro";
 const projects = [
   {
     id: 0,
-    name: "my-portfolio",
+    name: "My-Portfolio",
     description: "My personal portfolio webpage made with Astro.",
     tags: ["Astro", "TypeScript", "Tailwind"],
     links: {
@@ -14,7 +14,7 @@ const projects = [
   },
   {
     id: 1,
-    name: "images",
+    name: "Images",
     description:
       "A picture sharing social media made with Next 13 server actions.",
     tags: ["TypeScript", "Next.js", "shadcn/ui", "Tailwind", "MongoDB"],
@@ -25,7 +25,7 @@ const projects = [
   },
   {
     id: 2,
-    name: "theater.io",
+    name: "Theater.io",
     description: "A cinema reserve and discover application.",
     tags: ["TypeScript", "Next.js", "Mantine UI", "prisma", "tRPC", "Supabase"],
     links: {
@@ -111,7 +111,7 @@ const projects = [
   },
   {
     id: 8,
-    name: "recipes",
+    name: "Recipes",
     description: "A simple app made with laravel.",
     tags: ["PHP", "Laravel", "Tailwind", "mySQL"],
     links: {
@@ -225,7 +225,9 @@ const projects = [
       Explore my learning sandbox!
     </h4>
   </header>
-  <div class="grid grid-cols-3 max-w-7xl mx-auto gap-2">
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-2 px-4 sm:px-12 lg:px-20"
+  >
     {projects.map((project) => <ProjectCard project={project} />)}
   </div>
 </section>
