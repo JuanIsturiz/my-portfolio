@@ -9,37 +9,6 @@ const navLinks = [
 ];
 ---
 
-<header
-  class="absolute left-0 top-0 z-20 flex justify-between items-center w-full border-b bg-white py-1 px-4"
->
-  <button
-    class="parent flex items-center gap-1 text-lg bg-black text-white py-1 px-2 rounded"
-  >
-    <p>Download CV</p>
-    <img src={download.src} alt="Download icon" />
-  </button>
-
-  <!-- nav -->
-  <div class="cursor-pointer space-y-1 lg:hidden">
-    <div class="w-6 h-0.5 bg-black"></div>
-    <div class="w-6 h-0.5 bg-black"></div>
-    <div class="w-6 h-0.5 bg-black"></div>
-  </div>
-  <!-- large nav -->
-  <nav class="hidden lg:block text-lg space-x-4">
-    {
-      navLinks.map((link) => (
-        <a
-          href={`#${link.section}`}
-          class="py-1.5 px-2 rounded transition-colors duration-200 hover:bg-gray-900 hover:text-white font-medium"
-        >
-          {link.label}
-        </a>
-      ))
-    }
-  </nav>
-</header>
-
 <style>
   .parent:hover img {
     animation: download-bounce 1500ms linear infinite;
@@ -63,3 +32,120 @@ const navLinks = [
     }
   }
 </style>
+
+<header
+  class="intro-fade fixed lg:absolute left-0 top-0 z-[90] lg:z-20 flex justify-between items-center w-full border-b bg-white py-1 px-4"
+>
+  <a href="/files/CV-ENG.pdf" download="CV-ENG.pdf">
+    <button
+      class="parent flex items-center gap-1 text-sm md:text-base lg:text-lg bg-black text-white py-1 px-2 rounded-sm"
+    >
+      <p class="tracking-tighter">Download CV</p>
+      <img src={download.src} alt="Download icon" class="hidden w-5 lg:block" />
+    </button>
+  </a>
+
+  <!-- nav -->
+  <div
+    class="relative z-[100] cursor-pointer space-y-1 lg:hidden"
+    id="hamburger"
+  >
+    <div class="bar w-6 h-0.5 bg-black transition-all"></div>
+    <div class="bar w-6 h-0.5 bg-black transition-all"></div>
+    <div class="bar w-6 h-0.5 bg-black transition-all"></div>
+  </div>
+  <!-- small nav -->
+  <nav
+    id="small-nav"
+    class="pointer-events-none fixed right-0 top-0 z-[90] w-full flex flex-col items-center gap-14 bg-white bg-[url('/img/contact-bg.svg')] bg-cover place-content-center h-screen opacity-0 transition-all overflow-hidden"
+  >
+    {
+      [{ label: "Home", section: "hero" }, ...navLinks].map((link) => (
+        <a
+          href={`#${link.section}`}
+          class="w-full nav-link py-1.5 px-2 transition-all duration-200 tracking-tighter hover:bg-zinc-950 hover:text-white text-2xl text-center"
+        >
+          {link.label}
+        </a>
+      ))
+    }
+  </nav>
+  <!-- large nav -->
+  <nav class="hidden lg:block text-lg space-x-4">
+    {
+      navLinks.map((link) => (
+        <a
+          href={`#${link.section}`}
+          class="py-1.5 px-2 rounded-sm transition-colors duration-200 hover:bg-gray-900 hover:text-white font-medium"
+        >
+          {link.label}
+        </a>
+      ))
+    }
+  </nav>
+</header>
+
+<script>
+  let open = false;
+  const hamburger = document.getElementById("hamburger") as HTMLElement;
+  const smallNav = document.getElementById("small-nav") as HTMLElement;
+
+  const [topBar, midBar, bottomBar] = Array.from(
+    document.querySelectorAll(".bar")
+  ).map((elem) => elem as HTMLElement);
+
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      open = false;
+      enableScroll();
+      document.documentElement.style.scrollBehavior = "auto";
+      smallNav.style.opacity = "0";
+      smallNav.style.pointerEvents = "none";
+    });
+  });
+
+  function disableScroll() {
+    const scrollTop = window.document.documentElement.scrollTop;
+    const scrollLeft = window.document.documentElement.scrollLeft;
+
+    window.onscroll = function () {
+      window.scrollTo(scrollLeft, scrollTop);
+    };
+  }
+
+  function enableScroll() {
+    window.onscroll = function () {};
+  }
+
+  hamburger.onclick = () => {
+    open = !open;
+    document.documentElement.style.scrollBehavior = open ? "auto" : "smooth";
+    smallNav.style.opacity = open ? "100" : "0";
+    smallNav.style.pointerEvents = open ? "auto" : "none";
+    if (open) {
+      topBar.style.transform = "rotate(45deg) translateX(6px) translateY(6px)";
+      topBar.style.width = "28px";
+      midBar.style.opacity = "0";
+      bottomBar.style.transform =
+        "rotate(-45deg) translateX(2px) translateY(-2px)";
+      bottomBar.style.width = "28px";
+      hamburger.style.transform = "translateX(3px)";
+      hamburger.style.marginTop = "0.5rem";
+      hamburger.style.height = "18px";
+      disableScroll();
+    } else {
+      topBar.style.transform = "rotate(0deg) translateX(0px) translateY(0px)";
+      topBar.style.width = "24px";
+      midBar.style.opacity = "100";
+      bottomBar.style.transform =
+        "rotate(0deg) translateX(0px) translateY(0px)";
+      bottomBar.style.width = "24px";
+      hamburger.style.transform = "translateX(0)";
+      hamburger.style.marginTop = "0rem";
+      hamburger.style.height = "auto";
+      enableScroll();
+    }
+  };
+</script>

@@ -37,7 +37,7 @@ const other = [
 const db = ["PostgreSQL", "MongoDB", "mySQL", "Supabase", "PlanetScale"];
 ---
 
-<section id="stack" class="relative min-h-screen p-4">
+<section id="stack" class="relative min-h-screen p-4 pt-12 lg:pt-4">
   <div class="relative z-20">
     <header class="mb-4">
       <h3 class="text-5xl text-center tracking-tighter font-bold">My Stack</h3>
@@ -54,5 +54,9 @@ const db = ["PostgreSQL", "MongoDB", "mySQL", "Supabase", "PlanetScale"];
       <TechList title="Other" list={other} />
     </div>
   </div>
-  <img src={stack.src} alt="" class="absolute z-10 right-0 bottom-0" />
+  <img
+    src={stack.src}
+    alt="Stack background image"
+    class="absolute z-10 right-0 bottom-0"
+  />
 </section>

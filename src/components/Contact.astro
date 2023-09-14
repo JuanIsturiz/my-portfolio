@@ -1,10 +1,11 @@
 ---
-import chavez from "../assets/chavez.webp";
 import github from "../assets/icons/github.svg";
 import linkedin from "../assets/icons/linkedin.svg";
 import instagram from "../assets/icons/instagram.svg";
 import gmail from "../assets/icons/gmail.svg";
 import discord from "../assets/icons/discord.svg";
+import send from "../assets/icons/send.svg";
+import mapPin from "../assets/icons/map-pin.svg";
 
 const socials = [
   {
@@ -35,7 +36,7 @@ const socials = [
 ];
 ---
 
-<section id="contact" class="min-h-screen p-2 md:p-8">
+<section id="contact" class="min-h-screen p-2 pt-12 lg:pt-4 md:px-4 lg:px-8">
   <header class="mb-4">
     <h3 class="text-5xl text-center tracking-tighter font-bold">Contact</h3>
     <h4 class="text-3xl text-center tracking-tighter font-bold text-gray-800">
@@ -43,44 +44,114 @@ const socials = [
     </h4>
   </header>
   <div
-    class="grid gap-24 grid-cols-2 w-full max-w-7xl mx-auto p-2 border-2 border-gray-600 rounded shadow-lg shadow-gray-500 bg-[url('/img/contact-bg.svg')] bg-cover"
+    class="grid gap-8 md:grid-cols-2 w-full max-w-7xl mx-auto p-2 border-2 border-gray-500 rounded shadow-lg shadow-gray-500 bg-[url('/img/contact-bg.svg')] bg-cover"
   >
     <!-- text -->
     <div>
-      <div class="mb-8">
-        <h6 class="text-xl font-medium mb-2">
+      <div class="mb-4">
+        <h6 class="text-xl font-medium mb-2 tracking-tighter">
           Thank you for reaching this far into the website!!
         </h6>
-        <p class="font-medium text-gray-700">
+        <p class="font-medium text-gray-800">
           In addition to the above, I'm also a fast learner, patient, constant
           and very preseverant person, good at finding solutions and well
           performed working with a team, always trying to learn new abilities to
-          improve myself as a proffesional.
+          improve myself as a professional.
         </p>
       </div>
-      <h5 class="text-2xl font-medium mb-2">Socials</h5>
-      <div class="grid grid-cols-2 gap-x-10 gap-y-4">
+      <div class="mb-4">
+        <div class="flex items-center gap-1">
+          <img src={mapPin.src} alt="Map pin icon" class="w-8" />
+          <span class="text-xl tracking-tighter">Venezuela</span>
+        </div>
+      </div>
+      <h5 class="text-2xl font-medium mb-2 tracking-tighter">Socials</h5>
+      <div
+        class="mb-8 flex lg:grid gap-x-4 lg:grid-cols-[2fr_1.25fr] xl:lg:grid-cols-2 lg:gap-x-10 lg:gap-y-4"
+      >
         {
           socials.map((social) => (
-            <a
-              href={social.link}
-              target="_blank"
-              class="group flex items-center gap-2 opacity-90 transition-all hover:opacity-100 hover:translate-x-1"
-            >
-              <img
-                src={social.icon}
-                alt=""
-                class="cursor-pointer w-10 shadow-md shadow-gray-900 rounded-lg"
-              />
-              <span class="transition-all group-hover:font-bold">
-                {social.label}
-              </span>
-            </a>
+            <div>
+              <a
+                href={social.link}
+                target="_blank"
+                class="group md:inline-flex md:items-center md:gap-2 opacity-90 transition-all hover:opacity-100 hover:translate-y-1 lg:hover:translate-y-0 lg:hover:translate-x-1"
+              >
+                <img
+                  src={social.icon}
+                  alt=""
+                  class="cursor-pointer w-8 lg:w-6 shadow-md shadow-gray-500 rounded-lg"
+                />
+                <span class="hidden lg:block transition-all group-hover:font-bold">
+                  {social.label}
+                </span>
+              </a>
+            </div>
           ))
         }
       </div>
     </div>
     <!-- form -->
-    <div>form</div>
+    <div>
+      <h5 class="text-xl font-medium mb-2 tracking-tighter">Get in touch!</h5>
+      <div class="p-2 rounded shadow-md border shadow-gray-700">
+        <form action="" id="form">
+          <div class="flex flex-col gap-1 mb-4 font-medium">
+            <label for="name" class="tracking-tighter">Name:</label>
+            <input
+              required
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Your Name"
+              class="rounded text-black border-zinc-300 text-sm p-1.5 focus:border-zinc-600 focus:ring-zinc-600"
+              autocomplete="off"
+            />
+          </div>
+          <div class="flex flex-col gap-1 mb-4 font-medium">
+            <label for="email" class="tracking-tighter">Email:</label>
+            <input
+              required
+              type="email"
+              name="email"
+              id="email"
+              placeholder="your.email@mail.com"
+              class="rounded text-black border-zinc-300 text-sm p-1.5 focus:border-zinc-600 focus:ring-zinc-600"
+              autocomplete="off"
+            />
+          </div>
+          <div class="flex flex-col gap-1 mb-4 font-medium">
+            <label for="email" class="tracking-tighter">Message:</label>
+            <textarea
+              required
+              name="message"
+              id="message"
+              cols="30"
+              rows="6"
+              placeholder="Hi..."
+              class="rounded text-black border-zinc-300 text-sm p-1.5 focus:border-zinc-600 focus:ring-zinc-600"
+            ></textarea>
+          </div>
+          <div>
+            <button
+              class="relative w-full group flex items-center justify-center bg-zinc-950 text-white h-12 text-lg font-medium rounded border border-transparent transition-all duration-200 hover:bg-white hover:text-black hover:border-zinc-300"
+            >
+              <img
+                src={send.src}
+                alt="Send icon"
+                class="w-7 absolute left-5 top-1/2 -translate-x-1/2 -translate-y-1/2 duration-200 transition-all opacity-0 group-hover:opacity-90 group-hover:left-1/2"
+              />
+              <span
+                class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 duration-200 transition-opacity group-hover:opacity-0"
+              >
+                Send it!
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </section>
+
+<script></script>

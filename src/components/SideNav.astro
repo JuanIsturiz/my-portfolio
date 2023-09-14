@@ -9,7 +9,7 @@ const navLinks = [
 ---
 
 <aside
-  class="hidden fixed z-30 bottom-0 right-0 h-[90vh] lg:flex items-center p-1"
+  class="intro-translate-x hidden fixed z-30 bottom-0 right-0 h-[90vh] lg:flex items-center p-1"
 >
   <div class="relative -mt-[10vh] z-30 flex flex-col items-end">
     {
@@ -27,3 +27,18 @@ const navLinks = [
     }
   </div>
 </aside>
+
+<style>
+  .intro-translate-x {
+    animation: translate-in-x 500ms ease-in-out;
+  }
+
+  @keyframes translate-in-x {
+    0% {
+      transform: translatex(16px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+</style>

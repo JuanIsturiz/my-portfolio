@@ -5,7 +5,7 @@ interface Project {
   description: string;
   tags: string[];
   links: {
-    live: string;
+    live: string | null;
     code: string;
   };
 }
@@ -17,10 +17,10 @@ export interface Props {
 const { project } = Astro.props;
 ---
 
-<div class="relative group h-56 shadow-md shadow-gray-400">
+<div class="relative group h-56 shadow-md shadow-gray-400 select-none">
   <!-- default -->
   <div
-    class="absolute z-[20] left-0 top-0 w-full h-full grid place-content-center bg-[url('/img/project-bg.svg')] bg-center bg-cover transition-opacity duration-200 group-hover:opacity-10 group-hover:text-zinc-700"
+    class="absolute z-[20] left-0 top-0 w-full h-full grid place-content-center bg-[url('/img/project-bg.svg')] bg-center bg-cover transition-opacity duration-200 sm:group-hover:opacity-10 sm:group-hover:text-zinc-700"
   >
     <h6 class="text-2xl font-bold tracking-tighter text-center">
       {project.name}
@@ -28,7 +28,7 @@ const { project } = Astro.props;
   </div>
   <!-- hovered -->
   <div
-    class="relative z-[10] left-0 top-0 w-full h-full opacity-0 bg-zinc-900 text-white px-4 py-6 transition-opacity duration-200 group-hover:opacity-90"
+    class="hidden sm:block relative z-[10] left-0 top-0 w-full h-full opacity-0 bg-zinc-900 text-white px-4 py-6 transition-opacity duration-200 sm:group-hover:opacity-90"
   >
     <h5 class="text-2xl font-light tracking-tighter">
       {project.name}
@@ -40,7 +40,7 @@ const { project } = Astro.props;
       {
         project.tags.map((tag) => (
           <div>
-            <span class="text-xs py-0.5 px-1 bg-black rounded">{tag}</span>
+            <span class="text-xs py-0.5 px-1 bg-black rounded-sm">{tag}</span>
           </div>
         ))
       }
@@ -48,17 +48,23 @@ const { project } = Astro.props;
   </div>
   <!-- links -->
   <div
-    class="absolute z-[30] right-2 bottom-2 flex gap-2 transition-opacity opacity-0 duration-200 group-hover:opacity-100"
+    class="absolute z-[30] right-2 bottom-2 flex gap-2 transition-opacity sm:opacity-0 duration-200 sm:group-hover:opacity-100"
   >
-    <a
-      href={project.links.live}
-      class="cursor-pointer w-14 text-sm text-center py-1 px-2 text-white bg-zinc-950 rounded transition-all hover:bg-zinc-300 hover:text-black hover:scale-105 hover:font-semibold"
-    >
-      Live</a
-    >
+    {
+      project.links.live && (
+        <a
+          href={project.links.live}
+          target="_blank"
+          class="cursor-pointer w-14 text-sm text-center py-1 px-2 text-white bg-zinc-950 rounded-sm transition-all sm:hover:bg-white sm:hover:text-black sm:hover:scale-105 sm:hover:font-semibold"
+        >
+          Live
+        </a>
+      )
+    }
     <a
       href={project.links.code}
-      class="cursor-pointer w-14 text-sm text-center py-1 px-2 text-white bg-zinc-950 rounded transition-all hover:bg-zinc-300 hover:text-black hover:scale-105 hover:font-semibold"
+      target="_blank"
+      class="cursor-pointer w-14 text-sm text-center py-1 px-2 text-white bg-zinc-950 rounded-sm transition-all sm:hover:bg-white sm:hover:text-black sm:hover:scale-105 sm:hover:font-semibold"
       >Code</a
     >
   </div>
