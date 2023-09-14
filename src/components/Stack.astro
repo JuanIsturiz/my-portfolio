@@ -1,6 +1,7 @@
 ---
 import TechList from "./TechList.astro";
 import stack from "../assets/stack.svg";
+import Heading from "./Heading.astro";
 
 const lang = ["javascript", "typescript", "PHP", "Astro"];
 const tech = [
@@ -39,12 +40,7 @@ const db = ["PostgreSQL", "MongoDB", "mySQL", "Supabase", "PlanetScale"];
 
 <section id="stack" class="relative min-h-screen p-4 pt-12 lg:pt-4">
   <div class="relative z-20">
-    <header class="mb-4">
-      <h3 class="text-5xl text-center tracking-tighter font-bold">My Stack</h3>
-      <h4 class="text-3xl text-center tracking-tighter font-bold text-gray-800">
-        Languages & Technologies
-      </h4>
-    </header>
+    <Heading title="My Stack" subtitle="Languages & Technologies" />
     <div
       class="border-2 border-gray-600 rounded max-w-3xl mx-auto p-2 bg-white shadow-lg shadow-gray-500"
     >

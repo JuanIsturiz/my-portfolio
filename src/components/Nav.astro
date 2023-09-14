@@ -36,7 +36,7 @@ const navLinks = [
 <header
   class="intro-fade fixed lg:absolute left-0 top-0 z-[90] lg:z-20 flex justify-between items-center w-full border-b bg-white py-1 px-4"
 >
-  <a href="/files/CV-ENG.pdf" download="CV-ENG.pdf">
+  <a href="/files/CV-ENG.pdf" download="CV-ENG.pdf" aria-label="Download CV">
     <button
       class="parent flex items-center gap-1 text-sm md:text-base lg:text-lg bg-black text-white py-1 px-2 rounded-sm"
     >
@@ -99,8 +99,17 @@ const navLinks = [
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
       open = false;
+      topBar.style.transform = "rotate(0deg) translateX(0px) translateY(0px)";
+      topBar.style.width = "24px";
+      midBar.style.opacity = "100";
+      bottomBar.style.transform =
+        "rotate(0deg) translateX(0px) translateY(0px)";
+      bottomBar.style.width = "24px";
+      hamburger.style.transform = "translateX(0)";
+      hamburger.style.marginTop = "0rem";
+      hamburger.style.height = "auto";
       enableScroll();
-      document.documentElement.style.scrollBehavior = "auto";
+      document.documentElement.style.scrollBehavior = "smooth";
       smallNav.style.opacity = "0";
       smallNav.style.pointerEvents = "none";
     });

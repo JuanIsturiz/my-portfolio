@@ -1,4 +1,5 @@
 ---
+import Heading from "./Heading.astro";
 import ProjectCard from "./ProjectCard.astro";
 
 const projects = [
@@ -227,12 +228,7 @@ const projects = [
 ---
 
 <section id="projects" class="min-h-[200vh] p-4 pt-12 lg:pt-4">
-  <header class="mb-4">
-    <h3 class="text-5xl text-center tracking-tighter font-bold">Projects</h3>
-    <h4 class="text-3xl text-center tracking-tighter font-bold text-gray-800">
-      Explore my learning sandbox!
-    </h4>
-  </header>
+  <Heading title="Projects" subtitle="Explore my learning sandbox!" />
   <div
     class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-2 px-4 sm:px-12 lg:px-20"
   >
