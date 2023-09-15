@@ -10,6 +10,11 @@ const navLinks = [
 ---
 
 <style>
+  @media (max-height: 425px) and (orientation: landscape) {
+    .small-nav {
+      gap: 18px !important;
+    }
+  }
   .parent:hover img {
     animation: download-bounce 1500ms linear infinite;
   }
@@ -57,7 +62,7 @@ const navLinks = [
   <!-- small nav -->
   <nav
     id="small-nav"
-    class="pointer-events-none fixed right-0 top-0 z-[90] w-full flex flex-col items-center gap-14 bg-white bg-[url('/img/contact-bg.svg')] bg-cover place-content-center h-screen opacity-0 transition-all overflow-hidden"
+    class="small-nav pointer-events-none fixed right-0 top-0 z-[90] w-full flex flex-col items-center gap-14 orient bg-white bg-[url('/img/contact-bg.svg')] bg-cover place-content-center h-screen opacity-0 transition-all overflow-hidden"
   >
     {
       [{ label: "Home", section: "hero" }, ...navLinks].map((link) => (

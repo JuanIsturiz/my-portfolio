@@ -8,22 +8,6 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-  </head>
-  <body>
-    <Nav />
-    <SideNav />
-    <slot />
-  </body>
-</html>
 <style is:global>
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
@@ -64,4 +48,41 @@ const { title } = Astro.props;
       opacity: 100;
     }
   }
+
+  @media (max-height: 425px) and (orientation: landscape) {
+    #hero {
+      padding-top: 32px;
+    }
+  }
 </style>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link id="favicon" rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Nav />
+    <SideNav />
+    <slot />
+  </body>
+</html>
+
+<script>
+  const favicon = document.getElementById("favicon") as HTMLLinkElement;
+
+  function changeTitle(isAway: boolean) {
+    if (isAway) {
+      favicon.href = "/logo-upside-down.svg";
+    } else {
+      favicon.href = "/favicon.svg";
+    }
+  }
+
+  window.addEventListener("blur", () => changeTitle(true));
+  window.addEventListener("focus", () => changeTitle(false));
+</script>
