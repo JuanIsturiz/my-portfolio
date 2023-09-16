@@ -6,11 +6,13 @@ import arrowDown from "../assets/arrow-down.svg";
   id="hero"
   class="relative intro-fade flex items-center min-h-screen bg-[url('/img/hero-bg.svg')] bg-cover"
 >
-  <div class="intro-translate -mt-96 ml-2 sm:-mt-64 sm:ml-6">
+  <div class="intro-translate -mt-96 ml-3 sm:-mt-64 sm:ml-6">
     <h1 class="text-4xl sm:text-6xl tracking-tighter font-bold">
       Hi, I'm <span class="hero-shadow">Juan Isturiz</span>
     </h1>
-    <h2 class="text-2xl sm:text-4xl tracking-tighter font-bold text-gray-900">
+    <h2
+      class="swing text-2xl sm:text-4xl tracking-tighter font-bold text-gray-900"
+    >
       a Fullstack Developer
     </h2>
   </div>
@@ -31,15 +33,52 @@ import arrowDown from "../assets/arrow-down.svg";
   }
 
   .intro-translate {
-    animation: translate-in 500ms ease-in-out;
+    animation: bounce-in 1s ease;
   }
 
-  @keyframes translate-in {
+  .swing {
+    transform-origin: top left;
+    animation: swing 5s 1.5s ease infinite;
+  }
+
+  @keyframes swing {
     0% {
-      transform: translateY(10px);
+      transform: rotate(0);
+    }
+    5.714% {
+      transform: rotate(6deg);
+    }
+    11.429% {
+      transform: rotate(-3.5deg);
+    }
+    17.143% {
+      transform: rotate(1deg);
+    }
+    22.857% {
+      transform: rotate(-1deg);
+    }
+    28.571% {
+      transform: rotate(0deg);
     }
     100% {
-      transform: translateY(0);
+      transform: rotate(0deg);
+    }
+  }
+
+  @keyframes bounce-in {
+    0% {
+      opacity: 0;
+      transform: translateX(-2000px);
+    }
+    60% {
+      opacity: 1;
+      transform: translateX(30px);
+    }
+    80% {
+      transform: translateX(-10px);
+    }
+    100% {
+      transform: translateX(0);
     }
   }
 </style>

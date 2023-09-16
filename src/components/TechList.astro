@@ -1,7 +1,10 @@
 ---
 export interface Props {
   title: string;
-  list: string[];
+  list: {
+    label: string;
+    icon: string;
+  }[];
 }
 
 const { title, list } = Astro.props;
@@ -12,9 +15,15 @@ const { title, list } = Astro.props;
   <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 opacity-90">
     {
       list.map((item) => (
-        <li class="font-medium text-lg tracking-tighter">
-          <span class="mr-0.5">&gt;</span>
-          {item}
+        <li class="mb-0.5 md:mb-0 font-medium text-lg tracking-tighter flex items-center gap-1">
+          <img
+            src={item.icon}
+            alt={item.label}
+            width="16"
+            height="16"
+            class="w-4 h-4"
+          />
+          {item.label}
         </li>
       ))
     }

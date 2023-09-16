@@ -1,41 +1,88 @@
 ---
+import javascript from "../assets/stack-icons/javascript.svg";
+import typescript from "../assets/stack-icons/typescript.svg";
+import trpc from "../assets/stack-icons/trpc.svg";
+import astro from "../assets/stack-icons/astro.svg";
+import zod from "../assets/stack-icons/zod.svg";
+import typeorm from "../assets/stack-icons/typeorm.svg";
+import mysql from "../assets/stack-icons/mysql.svg";
+import vercel from "../assets/stack-icons/vercel.svg";
+import netlify from "../assets/stack-icons/netlify.svg";
+import php from "../assets/stack-icons/php.svg";
+import express from "../assets/stack-icons/express.svg";
+import shadcn from "../assets/stack-icons/shadcn.svg";
+import react from "../assets/stack-icons/react.svg";
+import redux from "../assets/stack-icons/redux.svg";
+import mantine from "../assets/stack-icons/mantine.svg";
+import next from "../assets/stack-icons/next.svg";
+import tailwind from "../assets/stack-icons/tailwind.svg";
+import chakraui from "../assets/stack-icons/chakraui.svg";
+import node from "../assets/stack-icons/node.svg";
+import reactquery from "../assets/stack-icons/react-query.svg";
+import prisma from "../assets/stack-icons/prisma.svg";
+import mongo from "../assets/stack-icons/mongo.svg";
+import mongoose from "../assets/stack-icons/mongoose.svg";
+import sequelize from "../assets/stack-icons/sequelize.svg";
+import laravel from "../assets/stack-icons/laravel.svg";
+import postgresql from "../assets/stack-icons/postgresql.svg";
+import supabase from "../assets/stack-icons/supabase.svg";
+import planetscale from "../assets/stack-icons/planetscale.svg";
+import html from "../assets/stack-icons/html.svg";
+import css from "../assets/stack-icons/css.svg";
+import jwt from "../assets/stack-icons/jwt.svg";
+import git from "../assets/stack-icons/git.svg";
+import docker from "../assets/stack-icons/docker.svg";
+import styledcomponents from "../assets/stack-icons/styled-components.svg";
+import figma from "../assets/stack-icons/figma.svg";
+
 import TechList from "./TechList.astro";
 import stack from "../assets/stack.svg";
 import Heading from "./Heading.astro";
 
-const lang = ["javascript", "typescript", "PHP", "Astro"];
+const lang = [
+  { label: "javascript", icon: javascript.src },
+  { label: "typescript", icon: typescript.src },
+  { label: "PHP", icon: php.src },
+  { label: "Astro", icon: astro.src },
+];
 const tech = [
-  "React",
-  "React Native",
-  "Next.js",
-  "Node.js",
-  "Express.js",
-  "Redux",
-  "tailwindcss",
-  "Styled Comp.",
-  "React Query",
-  "Chakra UI",
-  "Mantine UI",
-  "shadcn/ui",
-  "tRPC",
-  "zod",
-  "Prisma",
-  "Mongoose",
-  "typeORM",
-  "Sequelize",
-  "Laravel",
+  { label: "React", icon: react.src },
+  { label: "React Native", icon: react.src },
+  { label: "Next.js", icon: next.src },
+  { label: "Node.js", icon: node.src },
+  { label: "Express.js", icon: express.src },
+  { label: "Redux", icon: redux.src },
+  { label: "tailwindcss", icon: tailwind.src },
+  { label: "Styled Comp.", icon: styledcomponents.src },
+  { label: "React Query", icon: reactquery.src },
+  { label: "Chakra UI", icon: chakraui.src },
+  { label: "Mantine UI", icon: mantine.src },
+  { label: "shadcn/ui", icon: shadcn.src },
+  { label: "tRPC", icon: trpc.src },
+  { label: "zod", icon: zod.src },
+  { label: "Prisma", icon: prisma.src },
+  { label: "Mongoose", icon: mongoose.src },
+  { label: "typeORM", icon: typeorm.src },
+  { label: "Sequelize", icon: sequelize.src },
+  { label: "Laravel", icon: laravel.src },
 ];
 const other = [
-  "HTML",
-  "CSS/SCSS",
-  "JWT",
-  "GIT",
-  "Docker",
-  "Figma",
-  "Vercel",
-  "Netlify",
+  { label: "HTML", icon: html.src },
+  { label: "CSS/SCSS", icon: css.src },
+  { label: "JWT", icon: jwt.src },
+  { label: "GIT", icon: git.src },
+  { label: "Docker", icon: docker.src },
+  { label: "Figma", icon: figma.src },
+  { label: "Vercel", icon: vercel.src },
+  { label: "Netlify", icon: netlify.src },
 ];
-const db = ["PostgreSQL", "MongoDB", "mySQL", "Supabase", "PlanetScale"];
+const db = [
+  { label: "PostgreSQL", icon: postgresql.src },
+  { label: "MongoDB", icon: mongo.src },
+  { label: "mySQL", icon: mysql.src },
+  { label: "Supabase", icon: supabase.src },
+  { label: "PlanetScale", icon: planetscale.src },
+];
 ---
 
 <section id="stack" class="relative min-h-screen p-4 pt-12 lg:pt-4">

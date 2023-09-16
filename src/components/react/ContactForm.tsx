@@ -1,7 +1,7 @@
 import send from "../../assets/icons/send.svg";
 import emailjs from "@emailjs/browser";
 import { Toaster, toast } from "sonner";
-import { useRef, useState } from "react";
+import { Fragment, useRef, useState } from "react";
 
 const SERVICE_ID = import.meta.env.PUBLIC_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.PUBLIC_TEMPLATE_ID;
@@ -50,7 +50,7 @@ export default function ContactForm() {
   };
 
   return (
-    <>
+    <Fragment>
       <Toaster />
       <div className="p-2 rounded shadow-md border shadow-gray-700">
         <form
@@ -108,7 +108,7 @@ export default function ContactForm() {
               required
               name="message"
               id="message"
-              cols={30}
+              cols={20}
               rows={6}
               placeholder="Hi..."
               className="rounded text-black border-zinc-300 text-sm p-1.5 focus:border-zinc-600 focus:ring-zinc-600"
@@ -155,6 +155,6 @@ export default function ContactForm() {
           </div>
         </form>
       </div>
-    </>
+    </Fragment>
   );
 }

@@ -19,6 +19,21 @@ const navLinks = [
     animation: download-bounce 1500ms linear infinite;
   }
 
+  .open-nav-slide {
+    animation: open-nav-slide 500ms ease;
+  }
+
+  @keyframes open-nav-slide {
+    0% {
+      transform: translateX(0px);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
+  }
   @keyframes download-bounce {
     0% {
       transform: translateY(0);
@@ -68,7 +83,9 @@ const navLinks = [
       [{ label: "Home", section: "hero" }, ...navLinks].map((link) => (
         <a
           href={`#${link.section}`}
-          class="w-full nav-link py-1.5 px-2 transition-all duration-200 tracking-tighter hover:bg-zinc-950 hover:text-white text-2xl text-center"
+          class={
+            "w-full nav-link py-1.5 px-2 transition-all duration-200 tracking-tighter hover:bg-zinc-950 hover:text-white text-2xl text-center"
+          }
         >
           {link.label}
         </a>
@@ -81,7 +98,7 @@ const navLinks = [
       navLinks.map((link) => (
         <a
           href={`#${link.section}`}
-          class="py-1.5 px-2 rounded-sm transition-colors duration-200 hover:bg-gray-900 hover:text-white font-medium"
+          class="py-1.5 px-2 rounded-sm transition-all duration-200 hover:bg-gray-900 hover:text-white font-medium"
         >
           {link.label}
         </a>
@@ -99,67 +116,56 @@ const navLinks = [
     document.querySelectorAll(".bar")
   ).map((elem) => elem as HTMLElement);
 
-  const navLinks = document.querySelectorAll(".nav-link");
+  const navLinks = Array.from(document.querySelectorAll(".nav-link")).map(
+    (elem) => elem as HTMLElement
+  );
+
+  function applyOpenNavStyles() {
+    topBar.style.transform = "rotate(45deg) translateX(6px) translateY(6px)";
+    topBar.style.width = "28px";
+    midBar.style.opacity = "0";
+    bottomBar.style.transform =
+      "rotate(-45deg) translateX(2px) translateY(-2px)";
+    bottomBar.style.width = "28px";
+    hamburger.style.transform = "translateX(3px)";
+    hamburger.style.marginTop = "0.5rem";
+    hamburger.style.height = "18px";
+    document.body.style.overflow = "hidden";
+    smallNav.style.opacity = "100";
+    smallNav.style.pointerEvents = "auto";
+  }
+
+  function applyClosedNavStyles() {
+    topBar.style.transform = "rotate(0deg) translateX(0px) translateY(0px)";
+    topBar.style.width = "24px";
+    midBar.style.opacity = "100";
+    bottomBar.style.transform = "rotate(0deg) translateX(0px) translateY(0px)";
+    bottomBar.style.width = "24px";
+    hamburger.style.transform = "translateX(0)";
+    hamburger.style.marginTop = "0rem";
+    hamburger.style.height = "auto";
+    document.body.style.overflow = "auto";
+    smallNav.style.opacity = "0";
+    smallNav.style.pointerEvents = "none";
+  }
 
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
       open = false;
-      topBar.style.transform = "rotate(0deg) translateX(0px) translateY(0px)";
-      topBar.style.width = "24px";
-      midBar.style.opacity = "100";
-      bottomBar.style.transform =
-        "rotate(0deg) translateX(0px) translateY(0px)";
-      bottomBar.style.width = "24px";
-      hamburger.style.transform = "translateX(0)";
-      hamburger.style.marginTop = "0rem";
-      hamburger.style.height = "auto";
-      enableScroll();
-      document.documentElement.style.scrollBehavior = "smooth";
-      smallNav.style.opacity = "0";
-      smallNav.style.pointerEvents = "none";
+      applyClosedNavStyles();
     });
   });
 
-  function disableScroll() {
-    const scrollTop = window.document.documentElement.scrollTop;
-    const scrollLeft = window.document.documentElement.scrollLeft;
-
-    window.onscroll = function () {
-      window.scrollTo(scrollLeft, scrollTop);
-    };
-  }
-
-  function enableScroll() {
-    window.onscroll = function () {};
-  }
-
   hamburger.onclick = () => {
     open = !open;
-    document.documentElement.style.scrollBehavior = open ? "auto" : "smooth";
-    smallNav.style.opacity = open ? "100" : "0";
-    smallNav.style.pointerEvents = open ? "auto" : "none";
+    navLinks.forEach((link, idx) => {
+      link.classList.toggle("open-nav-slide");
+      link.style.animationDelay = `${idx * 100}ms`;
+    });
     if (open) {
-      topBar.style.transform = "rotate(45deg) translateX(6px) translateY(6px)";
-      topBar.style.width = "28px";
-      midBar.style.opacity = "0";
-      bottomBar.style.transform =
-        "rotate(-45deg) translateX(2px) translateY(-2px)";
-      bottomBar.style.width = "28px";
-      hamburger.style.transform = "translateX(3px)";
-      hamburger.style.marginTop = "0.5rem";
-      hamburger.style.height = "18px";
-      disableScroll();
+      applyOpenNavStyles();
     } else {
-      topBar.style.transform = "rotate(0deg) translateX(0px) translateY(0px)";
-      topBar.style.width = "24px";
-      midBar.style.opacity = "100";
-      bottomBar.style.transform =
-        "rotate(0deg) translateX(0px) translateY(0px)";
-      bottomBar.style.width = "24px";
-      hamburger.style.transform = "translateX(0)";
-      hamburger.style.marginTop = "0rem";
-      hamburger.style.height = "auto";
-      enableScroll();
+      applyClosedNavStyles();
     }
   };
 </script>

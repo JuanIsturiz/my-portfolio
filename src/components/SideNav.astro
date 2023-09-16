@@ -30,14 +30,16 @@ const navLinks = [
 
 <style>
   .intro-translate-x {
-    animation: translate-in-x 500ms ease-in-out;
+    animation: translate-in-x 1s ease;
   }
 
   @keyframes translate-in-x {
     0% {
+      opacity: 0;
       transform: translatex(16px);
     }
     100% {
+      opacity: 100;
       transform: translateY(0);
     }
   }
