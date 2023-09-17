@@ -10,14 +10,18 @@
 </button>
 
 <script>
-  let theme = !localStorage.getItem("theme")
-    ? "light"
-    : localStorage.getItem("theme");
-
   const darkBtns = Array.from(document.getElementsByClassName("dark-mode"));
   const toggleImgs = Array.from(
     document.getElementsByClassName("toggle-mode")
   ) as HTMLImageElement[];
+
+  let theme = !localStorage.getItem("theme")
+    ? "light"
+    : localStorage.getItem("theme");
+  if (theme === "dark") {
+    toggleImgs.map((img) => (img.src = "/icons/sun.svg"));
+  }
+
   darkBtns.map((btn) => btn.addEventListener("click", toogleTheme));
 
   if (theme === "dark") {

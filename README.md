@@ -1,3 +1,40 @@
+# My Personal Portfolio
+
+Hello again!! Welcome to my personal portfolio webpage.
+
+---
+
+Thank you for joining me in my coding journey!!
+
+### Description
+
+A webpage made with Astro, tailwind, vanilla JS and a bit of react. In this project I tried my best to bring a nice balance between UX/UI and performance.
+
+### Dependencies
+
+- @astrojs/react
+- @astrojs/tailwind
+- @emailjs/browser
+- @types/react
+- @types/react-dom
+- astro
+- react
+- react-dom
+- sonner
+- tailwindcss
+
+### devDependencies
+
+- @tailwindcss/forms
+
+---
+
+### Preview
+
+Click here for a live preview of [My Personal Porflio](https://my-portfolio-juanisturiz.vercel.app/) deployed at Vercel.
+
+---
+
 # Astro Starter Kit: Basics
 
 ```
