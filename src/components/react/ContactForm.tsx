@@ -52,7 +52,7 @@ export default function ContactForm() {
   return (
     <Fragment>
       <Toaster />
-      <div className="p-2 rounded shadow-md border shadow-gray-700">
+      <div className="p-2 rounded shadow-md border shadow-gray-700 dark:border-zinc-900 dark:shadow-zinc-900 dark:shadow">
         <form
           ref={form}
           action=""
@@ -61,7 +61,10 @@ export default function ContactForm() {
           onSubmit={handleSubmit}
         >
           <div className="flex flex-col gap-1 mb-4 font-medium">
-            <label htmlFor="user_name" className="tracking-tighter">
+            <label
+              htmlFor="user_name"
+              className="tracking-tighter dark:text-white"
+            >
               Name:
             </label>
             <input
@@ -70,7 +73,7 @@ export default function ContactForm() {
               name="user_name"
               id="user_name"
               placeholder="Your Name"
-              className="rounded text-black border-zinc-300 text-sm p-1.5 focus:border-zinc-600 focus:ring-zinc-600"
+              className="rounded text-black border-zinc-300 text-sm p-1.5 focus:border-zinc-600 focus:ring-zinc-600 dark:text-white dark:border-zinc-800 dark:focus:border-zinc-900 dark:focus:ring-zinc-900 dark:bg-black"
               autoComplete="off"
               onChange={(e) =>
                 setEntries((prev) => ({
@@ -81,7 +84,10 @@ export default function ContactForm() {
             />
           </div>
           <div className="flex flex-col gap-1 mb-4 font-medium">
-            <label htmlFor="user_email" className="tracking-tighter">
+            <label
+              htmlFor="user_email"
+              className="tracking-tighter dark:text-white"
+            >
               Email:
             </label>
             <input
@@ -90,7 +96,7 @@ export default function ContactForm() {
               name="user_email"
               id="user_email"
               placeholder="your.email@mail.com"
-              className="rounded text-black border-zinc-300 text-sm p-1.5 focus:border-zinc-600 focus:ring-zinc-600"
+              className="rounded text-black border-zinc-300 text-sm p-1.5 focus:border-zinc-600 focus:ring-zinc-600 dark:text-white dark:border-zinc-800 dark:focus:border-zinc-900 dark:focus:ring-zinc-900 dark:bg-black"
               autoComplete="off"
               onChange={(e) =>
                 setEntries((prev) => ({
@@ -101,7 +107,10 @@ export default function ContactForm() {
             />
           </div>
           <div className="flex flex-col gap-1 mb-4 font-medium">
-            <label htmlFor="message" className="tracking-tighter">
+            <label
+              htmlFor="message"
+              className="tracking-tighter dark:text-white"
+            >
               Message:
             </label>
             <textarea
@@ -111,7 +120,7 @@ export default function ContactForm() {
               cols={20}
               rows={6}
               placeholder="Hi..."
-              className="rounded text-black border-zinc-300 text-sm p-1.5 focus:border-zinc-600 focus:ring-zinc-600"
+              className="rounded text-black border-zinc-300 text-sm p-1.5 focus:border-zinc-600 focus:ring-zinc-600 dark:text-white dark:border-zinc-800 dark:focus:border-zinc-900 dark:focus:ring-zinc-900 dark:bg-black"
               onChange={(e) =>
                 setEntries((prev) => ({
                   ...prev,
@@ -127,20 +136,20 @@ export default function ContactForm() {
                   !(entries.name || entries.email || entries.message) &&
                   !isLoading
                 }
-                className="relative w-full flex items-center justify-center bg-zinc-950 text-white h-12 text-lg font-medium rounded border border-transparent transition-all duration-200"
+                className="relative w-full flex items-center justify-center bg-zinc-950 text-white h-12 text-lg font-medium rounded border border-transparent transition-all duration-200 dark:bg-white dark:text-black"
               >
                 Sending...
               </button>
             ) : (
               <button
                 disabled={!(entries.name && entries.email && entries.message)}
-                className="relative w-full group flex items-center justify-center bg-zinc-950 text-white h-12 text-lg font-medium rounded border border-transparent transition-all duration-200 hover:bg-white hover:text-black hover:border-zinc-300 disabled:opacity-95"
+                className="relative w-full group flex items-center justify-center bg-zinc-950 text-white h-12 text-lg font-medium rounded border border-transparent transition-all duration-200 hover:bg-white hover:text-black hover:border-zinc-300 disabled:opacity-95 dark:bg-white dark:text-black dark:hover:bg-black dark:hover:text-white dark:hover:border-zinc-800"
               >
                 {entries.name && entries.email && entries.message ? (
                   <img
                     src={send.src}
                     alt="Send icon"
-                    className="w-7 absolute left-5 top-1/2 -translate-x-1/2 -translate-y-1/2 duration-200 transition-all opacity-0 group-hover:opacity-90 group-hover:left-1/2"
+                    className="w-7 absolute left-5 top-1/2 -translate-x-1/2 -translate-y-1/2 duration-200 transition-all opacity-0 group-hover:opacity-90 group-hover:left-1/2 dark:invert"
                   />
                 ) : (
                   <span className="absolute w-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 duration-200 transition-opacity opacity-0 group-hover:opacity-100">

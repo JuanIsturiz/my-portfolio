@@ -11,17 +11,19 @@ const { title, list } = Astro.props;
 ---
 
 <div class="mb-4">
-  <h5 class="text-lg font-semibold tracking-tighter">{title}</h5>
+  <h5 class="text-lg font-semibold tracking-tighter dark:text-white">
+    {title}
+  </h5>
   <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 opacity-90">
     {
       list.map((item) => (
-        <li class="mb-0.5 md:mb-0 font-medium text-lg tracking-tighter flex items-center gap-1">
+        <li class="mb-0.5 md:mb-0 font-medium text-lg tracking-tighter flex items-center gap-1 dark:text-white">
           <img
             src={item.icon}
             alt={item.label}
             width="16"
             height="16"
-            class="w-4 h-4"
+            class="w-4 h-4 dark:invert"
           />
           {item.label}
         </li>

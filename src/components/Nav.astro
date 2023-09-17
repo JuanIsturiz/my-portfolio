@@ -1,5 +1,6 @@
 ---
 import download from "../assets/arrow-down-to-line.svg";
+import ToggleTheme from "./ToggleTheme.astro";
 
 const navLinks = [
   { label: "About", section: "about" },
@@ -54,14 +55,18 @@ const navLinks = [
 </style>
 
 <header
-  class="intro-fade fixed lg:absolute left-0 top-0 z-[90] lg:z-20 flex justify-between items-center w-full border-b bg-white py-1 px-4"
+  class="intro-fade fixed lg:absolute left-0 top-0 z-[90] lg:z-20 flex justify-between items-center w-full border-b bg-white py-1 px-4 dark:bg-zinc-950 dark:border-b-zinc-700"
 >
   <a href="/files/CV-ENG.pdf" download="CV-ENG.pdf" aria-label="Download CV">
     <button
-      class="parent flex items-center gap-1 text-sm md:text-base lg:text-lg bg-black text-white py-1 px-2 rounded-sm"
+      class="parent flex items-center gap-1 text-sm md:text-base lg:text-lg bg-black text-white py-1 px-2 rounded-sm dark:bg-white dark:text-black"
     >
-      <p class="tracking-tighter">Download CV</p>
-      <img src={download.src} alt="Download icon" class="hidden w-5 lg:block" />
+      <p class="tracking-tighter dark:font-medium">Download CV</p>
+      <img
+        src={download.src}
+        alt="Download icon"
+        class="invert hidden w-5 lg:block dark:invert-0"
+      />
     </button>
   </a>
 
@@ -70,21 +75,24 @@ const navLinks = [
     class="relative z-[100] cursor-pointer space-y-1 lg:hidden"
     id="hamburger"
   >
-    <div class="bar w-6 h-0.5 bg-black transition-all"></div>
-    <div class="bar w-6 h-0.5 bg-black transition-all"></div>
-    <div class="bar w-6 h-0.5 bg-black transition-all"></div>
+    <div class="bar w-6 h-0.5 bg-black transition-all dark:bg-white"></div>
+    <div class="bar w-6 h-0.5 bg-black transition-all dark:bg-white"></div>
+    <div class="bar w-6 h-0.5 bg-black transition-all dark:bg-white"></div>
   </div>
   <!-- small nav -->
   <nav
     id="small-nav"
-    class="small-nav pointer-events-none fixed right-0 top-0 z-[90] w-full flex flex-col items-center gap-14 orient bg-white bg-[url('/img/contact-bg.svg')] bg-cover place-content-center h-screen opacity-0 transition-all overflow-hidden"
+    class="small-nav pointer-events-none fixed right-0 top-0 z-[90] w-full flex flex-col items-center gap-14 bg-white bg-[url('/img/contact-bg.svg')] bg-cover place-content-center h-screen opacity-0 transition-all overflow-hidden dark:bg-zinc-950"
   >
+    <div class="absolute top-2 left-2">
+      <ToggleTheme />
+    </div>
     {
       [{ label: "Home", section: "hero" }, ...navLinks].map((link) => (
         <a
           href={`#${link.section}`}
           class={
-            "w-full nav-link py-1.5 px-2 transition-all duration-200 tracking-tighter hover:bg-zinc-950 hover:text-white text-2xl text-center"
+            "w-full nav-link py-1.5 px-2 transition-all duration-200 tracking-tighter hover:bg-zinc-950 hover:text-white text-2xl text-center dark:text-white dark:hover:bg-white dark:hover:text-black"
           }
         >
           {link.label}
@@ -93,17 +101,18 @@ const navLinks = [
     }
   </nav>
   <!-- large nav -->
-  <nav class="hidden lg:block text-lg space-x-4">
+  <nav class="hidden lg:flex text-lg items-center gap-2">
     {
       navLinks.map((link) => (
         <a
           href={`#${link.section}`}
-          class="py-1.5 px-2 rounded-sm transition-all duration-200 hover:bg-gray-900 hover:text-white font-medium"
+          class="py-1.5 px-2 rounded-sm transition-all duration-200 font-medium hover:bg-gray-900 hover:text-white dark:text-white dark:hover:bg-gray-100 dark:hover:text-black"
         >
           {link.label}
         </a>
       ))
     }
+    <ToggleTheme />
   </nav>
 </header>
 
@@ -152,6 +161,7 @@ const navLinks = [
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
       open = false;
+      navLinks.map((l) => l.classList.remove("open-nav-slide"));
       applyClosedNavStyles();
     });
   });

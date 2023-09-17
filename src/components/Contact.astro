@@ -42,18 +42,21 @@ const socials = [
 ];
 ---
 
-<section id="contact" class="min-h-screen p-2 pt-12 lg:pt-4 md:px-4 lg:px-8">
+<section
+  id="contact"
+  class="min-h-screen p-2 pt-12 lg:pt-4 md:px-4 lg:px-8 bg-white dark:bg-zinc-950"
+>
   <Heading title="Contact" subtitle="Reach out to me!" />
   <div
-    class="grid gap-8 md:grid-cols-2 w-full max-w-7xl mx-auto p-2 border-2 border-gray-500 rounded shadow-lg shadow-gray-500 bg-[url('/img/contact-bg.svg')] bg-cover"
+    class="grid gap-8 md:grid-cols-2 w-full max-w-7xl mx-auto p-2 border-2 border-gray-600 rounded shadow-lg shadow-gray-500 bg-[url('/img/contact-bg.svg')] dark:bg-[url('/img/dark/contact-bg-dark.svg')] bg-cover dark:bg-zinc-950 dark:border-zinc-900 dark:shadow-zinc-900 dark:shadow-md"
   >
     <!-- text -->
     <div>
       <div class="mb-4">
-        <h5 class="text-xl font-medium mb-2 tracking-tighter">
+        <h5 class="text-xl font-medium mb-2 tracking-tighter dark:text-white">
           Thank you for reaching this far into the website!!
         </h5>
-        <p class="font-medium text-gray-800">
+        <p class="font-medium text-gray-800 dark:text-zinc-400">
           In addition to the above, I'm also a fast learner, patient, constant
           and very preseverant person, good at finding solutions and well
           performed working with a team, always trying to learn new abilities to
@@ -67,12 +70,15 @@ const socials = [
             alt="Map pin icon"
             width={32}
             height={32}
-            class="w-8"
+            class="w-8 dark:invert"
           />
-          <span class="text-xl tracking-tighter">Venezuela</span>
+          <span class="text-xl tracking-tighter dark:text-white">Venezuela</span
+          >
         </div>
       </div>
-      <h6 class="text-2xl font-medium mb-2 tracking-tighter">Socials</h6>
+      <h6 class="text-2xl font-medium mb-2 tracking-tighter dark:text-white">
+        Socials
+      </h6>
       <div
         class="mb-8 flex lg:grid gap-x-4 lg:grid-cols-[2fr_1.25fr] xl:lg:grid-cols-2 lg:gap-x-10 lg:gap-y-4"
       >
@@ -83,14 +89,14 @@ const socials = [
                 href={social.link}
                 target="_blank"
                 aria-label={`Link ${social.name} profile`}
-                class="group md:inline-flex md:items-center md:gap-2 opacity-90 transition-all hover:opacity-100 hover:translate-y-1 lg:hover:translate-y-0 lg:hover:translate-x-1"
+                class="group md:inline-flex md:items-center md:gap-2 opacity-90 transition-all hover:opacity-100 hover:translate-y-1 lg:hover:translate-y-0 lg:hover:translate-x-1 dark:text-white"
               >
                 <img
                   src={social.icon}
                   alt="Social media icon"
                   width={24}
                   height={24}
-                  class="cursor-pointer w-8 lg:w-6 shadow-md shadow-gray-500 rounded-lg"
+                  class="cursor-pointer w-8 lg:w-6 shadow-sm shadow-gray-500 rounded dark:shadow-gray-800 dark:invert"
                 />
                 <span class="hidden lg:block transition-all group-hover:font-bold">
                   {social.label}
@@ -103,7 +109,9 @@ const socials = [
     </div>
     <!-- form -->
     <div>
-      <h5 class="text-xl font-medium mb-2 tracking-tighter">Get in touch!</h5>
+      <h5 class="text-xl font-medium mb-2 tracking-tighter dark:text-white">
+        Get in touch!
+      </h5>
       <ContactForm client:load />
     </div>
   </div>

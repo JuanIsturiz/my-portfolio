@@ -1,0 +1,31 @@
+<button
+  class="dark-mode group py-1.5 px-2 rounded-sm transition-all duration-200 font-medium hover:bg-gray-900 hover:text-white dark:text-white dark:hover:bg-gray-100 dark:hover:text-black"
+>
+  <img
+    id="toggle-mode"
+    src="/icons/moon.svg"
+    alt="Toggle theme icon"
+    width="48"
+    class="w-6 h-6 transition-all dark:invert group-hover:invert dark:group-hover:invert-0"
+  />
+</button>
+
+<script>
+  let theme = !localStorage.getItem("theme")
+    ? "light"
+    : localStorage.getItem("theme");
+  const darkBtns = Array.from(document.getElementsByClassName("dark-mode"));
+  const toggleImg = document.getElementById("toggle-mode") as HTMLImageElement;
+  darkBtns.map((btn) => btn.addEventListener("click", toogleTheme));
+
+  if (theme === "dark") {
+    document.body.classList.toggle("dark");
+  }
+
+  function toogleTheme() {
+    localStorage.setItem("theme", theme === "light" ? "dark" : "light");
+    theme = theme === "light" ? "dark" : "light";
+    document.body.classList.toggle("dark");
+    toggleImg.src = theme === "light" ? "/icons/moon.svg" : "/icons/sun.svg";
+  }
+</script>

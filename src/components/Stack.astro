@@ -36,7 +36,6 @@ import styledcomponents from "../assets/stack-icons/styled-components.svg";
 import figma from "../assets/stack-icons/figma.svg";
 
 import TechList from "./TechList.astro";
-import stack from "../assets/stack.svg";
 import Heading from "./Heading.astro";
 
 const lang = [
@@ -85,11 +84,14 @@ const db = [
 ];
 ---
 
-<section id="stack" class="relative min-h-screen p-4 pt-12 lg:pt-4">
+<section
+  id="stack"
+  class="relative min-h-screen p-4 pt-12 lg:pt-4 bg-white dark:bg-zinc-950"
+>
   <div class="relative z-20">
     <Heading title="My Stack" subtitle="Languages & Technologies" />
     <div
-      class="border-2 border-gray-600 rounded max-w-3xl mx-auto p-2 bg-white shadow-lg shadow-gray-500"
+      class="border-2 border-gray-600 rounded max-w-3xl mx-auto p-2 bg-white shadow-lg shadow-gray-500 dark:bg-zinc-950 dark:border-zinc-900 dark:shadow-zinc-800"
     >
       <TechList title="Languages" list={lang} />
       <TechList title="Technologies" list={tech} />
@@ -97,9 +99,8 @@ const db = [
       <TechList title="Other" list={other} />
     </div>
   </div>
-  <img
-    src={stack.src}
-    alt="Stack background image"
-    class="absolute z-10 right-0 bottom-0"
-  />
+  <div
+    class="absolute w-[400px] h-[400px] z-10 right-0 bottom-0 bg-[url('/img/stack.svg')] dark:bg-[url('/img/dark/stack-dark.svg')]"
+  >
+  </div>
 </section>
